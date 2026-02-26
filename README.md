@@ -93,7 +93,6 @@
 }
 ```
 
----
 
 ## 🗄️ Database Schema
 
@@ -110,8 +109,6 @@ CREATE TABLE notes (
 );
 ```
 
----
-
 ## 🔐 Security Architecture
 
 | Security Feature | Implementation |
@@ -122,9 +119,6 @@ CREATE TABLE notes (
 | **Security Groups** | EC2-SG (ports 22, 80, 3000) + RDS-SG (port 3306 from EC2 only) |
 | **VPC Isolation** | Custom network — complete isolation |
 
----
-
----
 
 ## 🌐 Network Architecture
 
@@ -137,9 +131,6 @@ CREATE TABLE notes (
 | Internet Gateway | notvault-igw | Internet access for EC2 |
 | Route Table | notvault-public-rt | Routes traffic to IGW |
 
----
-
----
 
 ## ⚙️ Setup & Deployment Steps
 
@@ -244,36 +235,36 @@ server {
 
 ![EC2 Running](screenshots/ec2-running.png)
 
----
+
 
 ### 4. RDS Database — Available
 > MySQL database available in private subnet
 
 ![RDS Available](screenshots/rds-available.png)
 
----
+
 
 ### 5. VPC — Custom Network
 > Custom VPC with public and private subnets
 
 ![VPC Console](screenshots/vpc-console.png)
 
----
+
 
 ### 6. IAM User — Created
 > IAM admin user with proper permissions
 
 ![IAM User](screenshots/iam-user.png)
 
----
+
 
 ### 7. S3 Bucket — Created
 > S3 bucket for file storage
 
 ![S3 Bucket](screenshots/s3-bucket.png)
 
----
----
+
+
 
 ## 💰 AWS Cost
 
@@ -286,7 +277,7 @@ server {
 | IAM | Free | $0.00 |
 | **Total** | | **$0.00** |
 
----
+
 ## 🎯 Key Learnings
 
 - ✅ Designed **3-tier architecture** (Nginx → Node.js → MySQL)
