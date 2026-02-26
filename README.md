@@ -78,19 +78,7 @@
 }
 ```
 
-**POST /notes** — Create note:
-```json
-// Request Body:
-{
-  "title": "AWS Note",
-  "content": "Built on EC2, RDS, S3, VPC, IAM!"
-}
 
-// Response:
-{
-  "success": true,
-  "noteId": 2
-}
 
 
 
