@@ -110,6 +110,22 @@ CREATE TABLE notes (
 );
 ```
 
+---
+
+## 🔐 Security Architecture
+
+| Security Feature | Implementation |
+|---|---|
+| **IAM User** | Separate admin user (no root access) |
+| **IAM Role** | EC2-S3-BlogRole (no hardcoded credentials) |
+| **Private Subnet** | RDS has zero internet exposure |
+| **Security Groups** | EC2-SG (ports 22, 80, 3000) + RDS-SG (port 3306 from EC2 only) |
+| **VPC Isolation** | Custom network — complete isolation |
+
+---
+
+
+
 
 
 
