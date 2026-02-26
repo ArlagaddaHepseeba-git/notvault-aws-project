@@ -224,8 +224,6 @@ server {
 }
 ```
 
----
-
 ## 📸 Project Screenshots
 
 ### 1. NoteVault API — Live Response
@@ -233,14 +231,14 @@ server {
 
 ![NoteVault Live](screenshots/notvault-live.png)
 
----
+
 
 ### 2. Health Check — Server Running
 > Server health check confirming EC2 is live
 
 ![Health Check](screenshots/health-check.png)
 
----
+
 ### 3. EC2 Instance — Running
 > EC2 server running on AWS Mumbai region
 
