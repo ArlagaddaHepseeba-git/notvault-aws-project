@@ -220,50 +220,57 @@ server {
 ### 1. NoteVault API — Live Response
 > App returning real data from RDS MySQL database
 
-![NoteVault Live](screenshots/notvault-live.png)
+<img width="1920" height="1080" alt="1 Browser " src="https://github.com/user-attachments/assets/04f9c704-af70-4705-ada0-c7717fca7102" />
+
 
 
 
 ### 2. Health Check — Server Running
 > Server health check confirming EC2 is live
 
-![Health Check](screenshots/health-check.png)
+<img width="1920" height="1080" alt="2 Browser health" src="https://github.com/user-attachments/assets/3d8855a0-f1d5-4ee8-898f-03482df87e7c" />
+
 
 
 ### 3. EC2 Instance — Running
 > EC2 server running on AWS Mumbai region
 
-![EC2 Running](screenshots/ec2-running.png)
+<img width="1920" height="1080" alt="3 EC2" src="https://github.com/user-attachments/assets/c3227b88-332a-42db-9872-0a12f2177986" />
+
+<img width="1920" height="1080" alt="3 EC2 console running1" src="https://github.com/user-attachments/assets/6ba7fc22-ce08-4a78-a471-d90ef3e3172f" />
+
+![Uploading 3.EC2 console running2.png…]()
 
 
 
 ### 4. RDS Database — Available
 > MySQL database available in private subnet
 
-![RDS Available](screenshots/rds-available.png)
+<img width="1920" height="1080" alt="4 RDS Available" src="https://github.com/user-attachments/assets/bb744a65-f941-4a07-8ec2-54fe40a125a9" />
 
 
 
 ### 5. VPC — Custom Network
 > Custom VPC with public and private subnets
 
-![VPC Console](screenshots/vpc-console.png)
+<img width="1920" height="1080" alt="5 VPC Console" src="https://github.com/user-attachments/assets/47bcf284-0206-4fba-8e34-db5aecebcafb" />
+
+<img width="1920" height="1080" alt="5 public  private subnets" src="https://github.com/user-attachments/assets/9860dce6-74f0-4de2-bd8b-15441d0c3d79" />
 
 
 
 ### 6. IAM User — Created
 > IAM admin user with proper permissions
 
-![IAM User](screenshots/iam-user.png)
+<img width="1920" height="1080" alt="IAM noteVault sucess" src="https://github.com/user-attachments/assets/7cd2e005-f5a8-47bb-be38-027a2ae5c1ca" />
+
 
 
 
 ### 7. S3 Bucket — Created
 > S3 bucket for file storage
 
-![S3 Bucket](screenshots/s3-bucket.png)
-
-
+<img width="1920" height="1080" alt="s3 bucket running 2026" src="https://github.com/user-attachments/assets/50b1d051-ac63-4d3b-b0ed-b9dad85e67e3" />
 
 
 ## 💰 AWS Cost
