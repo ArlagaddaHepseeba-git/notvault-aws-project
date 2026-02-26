@@ -102,16 +102,8 @@
 
 
 
-## ⚙️ Setup & Deployment Steps
 
-### 1. IAM Setup
-```bash
-# Created IAM user: notvault-admin
-# Attached: AdministratorAccess policy
-# Created IAM Role: EC2-S3-BlogRole
-# Configured AWS CLI:
-aws configure
-```
+
 
 ### 2. VPC Setup
 ```bash
