@@ -45,6 +45,21 @@
 | **OS** | Amazon Linux 2023 |
 
 
+## 📁 Project Structure
+
+```
+notvault/
+│
+├── server.js          # Main Express application
+├── .env               # Environment variables (DB, S3 config)
+├── package.json       # Node.js dependencies
+└── node_modules/      # Installed packages
+    ├── express
+    ├── mysql2
+    └── dotenv
+```
+
+
 ## 🚀 API Endpoints
 
 | Method | Endpoint | Description |
