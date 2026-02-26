@@ -17,7 +17,7 @@
 - ✅ All data stored in a real cloud database (RDS MySQL)
 - ✅ Deployed on a live AWS EC2 server
 
- ## 🏗️ Architecture Diagram
+ ## 🏗️ Architecture Diagram 
 
  <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/3af8b07d-3051-4402-b3a0-2e462e000c04" />
 
