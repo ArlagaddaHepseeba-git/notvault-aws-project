@@ -321,7 +321,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 **Built with ❤️ by Arlagadda Hepseeba**
 
-⭐ Star this repository if you found it helpful!
+
 
 </div>
 
