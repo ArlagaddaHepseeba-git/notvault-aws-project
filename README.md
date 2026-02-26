@@ -239,7 +239,7 @@ server {
 
 <img width="1920" height="1080" alt="3 EC2 console running1" src="https://github.com/user-attachments/assets/6ba7fc22-ce08-4a78-a471-d90ef3e3172f" />
 
-![Uploading 3.EC2 console running2.png…]()
+<img width="1920" height="1080" alt="3 EC2 console running2" src="https://github.com/user-attachments/assets/74856e6b-7450-47fa-979e-c0f38dc64afa" />
 
 
 
@@ -263,7 +263,6 @@ server {
 > IAM admin user with proper permissions
 
 <img width="1920" height="1080" alt="IAM noteVault sucess" src="https://github.com/user-attachments/assets/7cd2e005-f5a8-47bb-be38-027a2ae5c1ca" />
-
 
 
 
