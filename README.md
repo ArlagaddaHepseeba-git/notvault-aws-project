@@ -124,6 +124,50 @@ CREATE TABLE notes (
 
 ---
 
+---
+
+## 🌐 Network Architecture
+
+| Resource | CIDR / Value | Purpose |
+|---|---|---|
+| VPC | 10.0.0.0/16 | Main private network |
+| Public Subnet | 10.0.1.0/24 | EC2 lives here |
+| Private Subnet 1 | 10.0.2.0/24 | RDS lives here |
+| Private Subnet 2 | 10.0.3.0/24 | RDS Multi-AZ |
+| Internet Gateway | notvault-igw | Internet access for EC2 |
+| Route Table | notvault-public-rt | Routes traffic to IGW |
+
+---
+
+---
+
+## ⚙️ Setup & Deployment Steps
+
+### 1. IAM Setup
+```bash
+# Created IAM user: notvault-admin
+# Attached: AdministratorAccess policy
+# Created IAM Role: EC2-S3-BlogRole
+# Configured AWS CLI:
+aws configure
+```
+
+### 2. VPC Setup
+```bash
+# Created VPC: notvault-vpc (10.0.0.0/16)
+# Created Internet Gateway: notvault-igw
+# Created 3 Subnets (public + 2 private)
+# Created Route Table with IGW route
+# Created Security Groups for EC2 and RDS
+```
+
+### 3. S3 Setup
+```bash
+# Created bucket: notvault-files-2026
+aws s3 mb s3://notvault-files-2026
+aws s3 cp test.txt s3://notvault-files-2026/uploads/
+```
+
 
 
 
