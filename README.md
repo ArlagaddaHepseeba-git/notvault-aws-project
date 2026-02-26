@@ -92,6 +92,8 @@
   "noteId": 2
 }
 
+
+
 ## 🗄️ Database Schema
 
 ```sql
@@ -106,6 +108,9 @@ CREATE TABLE notes (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+
+
+
 ## 🔐 Security Architecture
 
 | Security Feature | Implementation |
@@ -118,6 +123,7 @@ CREATE TABLE notes (
 
 ---
 
+
 ## 🌐 Network Architecture
 
 | Resource | CIDR / Value | Purpose |
@@ -128,6 +134,7 @@ CREATE TABLE notes (
 | Private Subnet 2 | 10.0.3.0/24 | RDS Multi-AZ |
 | Internet Gateway | notvault-igw | Internet access for EC2 |
 | Route Table | notvault-public-rt | Routes traffic to IGW |
+
 
 
 ## ⚙️ Setup & Deployment Steps
