@@ -93,6 +93,20 @@
 }
 ```
 
+## 🗄️ Database Schema
+
+```sql
+CREATE DATABASE notvault_db;
+
+USE notvault_db;
+
+CREATE TABLE notes (
+  id         INT AUTO_INCREMENT PRIMARY KEY,
+  title      VARCHAR(255) NOT NULL,
+  content    TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 
 
 
