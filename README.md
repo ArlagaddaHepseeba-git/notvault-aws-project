@@ -94,46 +94,11 @@
 
 
 
-## 🗄️ Database Schema
-
-```sql
-CREATE DATABASE notvault_db;
-
-USE notvault_db;
-
-CREATE TABLE notes (
-  id         INT AUTO_INCREMENT PRIMARY KEY,
-  title      VARCHAR(255) NOT NULL,
-  content    TEXT,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
 
 
-=========================================================================
-
-## 🔐 Security Architecture
-
-| Security Feature | Implementation |
-|---|---|
-| **IAM User** | Separate admin user (no root access) |
-| **IAM Role** | EC2-S3-BlogRole (no hardcoded credentials) |
-| **Private Subnet** | RDS has zero internet exposure |
-| **Security Groups** | EC2-SG (ports 22, 80, 3000) + RDS-SG (port 3306 from EC2 only) |
-| **VPC Isolation** | Custom network — complete isolation |
-
----
 
 
-## 🌐 Network Architecture
 
-| Resource | CIDR / Value | Purpose |
-|---|---|---|
-| VPC | 10.0.0.0/16 | Main private network |
-| Public Subnet | 10.0.1.0/24 | EC2 lives here |
-| Private Subnet 1 | 10.0.2.0/24 | RDS lives here |
-| Private Subnet 2 | 10.0.3.0/24 | RDS Multi-AZ |
-| Internet Gateway | notvault-igw | Internet access for EC2 |
-| Route Table | notvault-public-rt | Routes traffic to IGW |
 
 
 
