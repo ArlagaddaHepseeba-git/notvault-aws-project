@@ -45,3 +45,182 @@
 | **OS** | Amazon Linux 2023 |
 
 
+## 🚀 API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/` | Get all notes |
+| POST | `/notes` | Create a new note |
+| DELETE | `/notes/:id` | Delete a note by ID |
+| GET | `/health` | Server health check |
+
+### Sample API Responses:
+
+**GET /** — List all notes:
+```json
+{
+  "success": true,
+  "notes": [
+    {
+      "id": 1,
+      "title": "My First Note",
+      "content": "NoteVault is working on AWS!",
+      "created_at": "2026-02-26T04:11:39.000Z"
+    }
+  ]
+}
+```
+**GET /health** — Health check:
+```json
+{
+  "status": "NoteVault is Running!",
+  "time": "2026-02-26T04:26:57.374Z"
+}
+```
+
+**POST /notes** — Create note:
+```json
+// Request Body:
+{
+  "title": "AWS Note",
+  "content": "Built on EC2, RDS, S3, VPC, IAM!"
+}
+
+// Response:
+{
+  "success": true,
+  "noteId": 2
+}
+
+## 🗄️ Database Schema
+
+```sql
+CREATE DATABASE notvault_db;
+
+USE notvault_db;
+
+CREATE TABLE notes (
+  id         INT AUTO_INCREMENT PRIMARY KEY,
+  title      VARCHAR(255) NOT NULL,
+  content    TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+## 🔐 Security Architecture
+
+| Security Feature | Implementation |
+|---|---|
+| **IAM User** | Separate admin user (no root access) |
+| **IAM Role** | EC2-S3-BlogRole (no hardcoded credentials) |
+| **Private Subnet** | RDS has zero internet exposure |
+| **Security Groups** | EC2-SG (ports 22, 80, 3000) + RDS-SG (port 3306 from EC2 only) |
+| **VPC Isolation** | Custom network — complete isolation |
+
+---
+
+## 🌐 Network Architecture
+
+| Resource | CIDR / Value | Purpose |
+|---|---|---|
+| VPC | 10.0.0.0/16 | Main private network |
+| Public Subnet | 10.0.1.0/24 | EC2 lives here |
+| Private Subnet 1 | 10.0.2.0/24 | RDS lives here |
+| Private Subnet 2 | 10.0.3.0/24 | RDS Multi-AZ |
+| Internet Gateway | notvault-igw | Internet access for EC2 |
+| Route Table | notvault-public-rt | Routes traffic to IGW |
+
+
+## ⚙️ Setup & Deployment Steps
+
+### 1. IAM Setup
+```bash
+# Created IAM user: notvault-admin
+# Attached: AdministratorAccess policy
+# Created IAM Role: EC2-S3-BlogRole
+# Configured AWS CLI:
+aws configure
+```
+
+### 2. VPC Setup
+```bash
+# Created VPC: notvault-vpc (10.0.0.0/16)
+# Created Internet Gateway: notvault-igw
+# Created 3 Subnets (public + 2 private)
+# Created Route Table with IGW route
+# Created Security Groups for EC2 and RDS
+
+### 3. S3 Setup
+```bash
+# Created bucket: notvault-files-2026
+aws s3 mb s3://notvault-files-2026
+aws s3 cp test.txt s3://notvault-files-2026/uploads/
+```
+
+### 4. RDS Setup
+```bash
+# Created DB Subnet Group
+# Launched MySQL 8.0 in private subnet
+# Database: notvault_db
+# Connected from EC2:
+mysql -h [RDS-ENDPOINT] -u admin -p
+```
+
+### 5. EC2 Setup
+```bash
+# Launched Amazon Linux 2023 t2.micro
+# SSH into server:
+ssh -i notvault-key.pem ec2-user@[EC2-IP]
+
+# Install dependencies:
+sudo dnf update -y
+sudo dnf install nodejs npm git nginx -y
+sudo dnf install mysql8.0 -y
+
+# Start Nginx:
+sudo systemctl enable nginx
+sudo systemctl start nginx
+```
+
+### 6. App Deployment
+```bash
+# Create project:
+mkdir ~/notvault && cd ~/notvault
+npm init -y
+npm install express mysql2 dotenv
+
+# Start with PM2:
+sudo npm install -g pm2
+pm2 start server.js --name notvault-app
+pm2 startup
+pm2 save
+```
+
+### 7. Nginx Configuration
+```nginx
+server {
+    listen 80;
+    server_name _;
+
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+```
+
+---
+
+## 📸 Project Screenshots
+
+### 1. NoteVault API — Live Response
+> App returning real data from RDS MySQL database
+
+![NoteVault Live](screenshots/notvault-live.png)
+
+
+
