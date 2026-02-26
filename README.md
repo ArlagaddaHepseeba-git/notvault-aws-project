@@ -93,6 +93,8 @@
 }
 ```
 
+---
+
 ## 🗄️ Database Schema
 
 ```sql
@@ -106,8 +108,7 @@ CREATE TABLE notes (
   content    TEXT,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
-
+```
 
 
 
