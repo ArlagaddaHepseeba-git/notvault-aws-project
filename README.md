@@ -206,6 +206,62 @@ pm2 startup
 pm2 save
 ```
 
+### 7. Nginx Configuration
+```nginx
+server {
+    listen 80;
+    server_name _;
+
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+```
+
+---
+
+## 📸 Project Screenshots
+
+### 1. NoteVault API — Live Response
+> App returning real data from RDS MySQL database
+
+![NoteVault Live](screenshots/notvault-live.png)
+
+---
+
+### 2. Health Check — Server Running
+> Server health check confirming EC2 is live
+
+![Health Check](screenshots/health-check.png)
+
+---
+### 3. EC2 Instance — Running
+> EC2 server running on AWS Mumbai region
+
+![EC2 Running](screenshots/ec2-running.png)
+
+---
+
+### 4. RDS Database — Available
+> MySQL database available in private subnet
+
+![RDS Available](screenshots/rds-available.png)
+
+---
+
+### 5. VPC — Custom Network
+> Custom VPC with public and private subnets
+
+![VPC Console](screenshots/vpc-console.png)
+
+---
+
 
 
 
