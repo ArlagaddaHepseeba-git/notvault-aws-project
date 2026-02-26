@@ -105,21 +105,6 @@
 
 
 
-### 2. VPC Setup
-```bash
-# Created VPC: notvault-vpc (10.0.0.0/16)
-# Created Internet Gateway: notvault-igw
-# Created 3 Subnets (public + 2 private)
-# Created Route Table with IGW route
-# Created Security Groups for EC2 and RDS
-
-### 3. S3 Setup
-```bash
-# Created bucket: notvault-files-2026
-aws s3 mb s3://notvault-files-2026
-aws s3 cp test.txt s3://notvault-files-2026/uploads/
-```
-
 ### 4. RDS Setup
 ```bash
 # Created DB Subnet Group
