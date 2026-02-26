@@ -168,6 +168,44 @@ aws s3 mb s3://notvault-files-2026
 aws s3 cp test.txt s3://notvault-files-2026/uploads/
 ```
 
+### 4. RDS Setup
+```bash
+# Created DB Subnet Group
+# Launched MySQL 8.0 in private subnet
+# Database: notvault_db
+# Connected from EC2:
+mysql -h [RDS-ENDPOINT] -u admin -p
+```
+
+### 5. EC2 Setup
+```bash
+# Launched Amazon Linux 2023 t2.micro
+# SSH into server:
+ssh -i notvault-key.pem ec2-user@[EC2-IP]
+
+# Install dependencies:
+sudo dnf update -y
+sudo dnf install nodejs npm git nginx -y
+sudo dnf install mysql8.0 -y
+
+# Start Nginx:
+sudo systemctl enable nginx
+sudo systemctl start nginx
+```
+### 6. App Deployment
+```bash
+# Create project:
+mkdir ~/notvault && cd ~/notvault
+npm init -y
+npm install express mysql2 dotenv
+
+# Start with PM2:
+sudo npm install -g pm2
+pm2 start server.js --name notvault-app
+pm2 startup
+pm2 save
+```
+
 
 
 
