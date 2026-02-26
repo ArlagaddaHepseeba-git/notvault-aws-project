@@ -262,6 +262,69 @@ server {
 
 ---
 
+### 6. IAM User — Created
+> IAM admin user with proper permissions
+
+![IAM User](screenshots/iam-user.png)
+
+---
+
+### 7. S3 Bucket — Created
+> S3 bucket for file storage
+
+![S3 Bucket](screenshots/s3-bucket.png)
+
+---
+---
+
+## 💰 AWS Cost
+
+| Service | Free Tier Limit | Cost |
+|---|---|---|
+| EC2 t2.micro | 750 hours/month | $0.00 |
+| RDS db.t3.micro | 750 hours/month | $0.00 |
+| S3 Storage | 5 GB | $0.00 |
+| VPC | Free | $0.00 |
+| IAM | Free | $0.00 |
+| **Total** | | **$0.00** |
+
+---
+## 🎯 Key Learnings
+
+- ✅ Designed **3-tier architecture** (Nginx → Node.js → MySQL)
+- ✅ Secured database in **private subnet** — zero internet exposure
+- ✅ Used **IAM Roles** instead of hardcoded AWS credentials
+- ✅ Configured **Nginx** as reverse proxy with **PM2** process manager
+- ✅ Implemented **VPC** with proper public/private subnet isolation
+- ✅ Achieved **100% AWS Free Tier** deployment
+- ✅ Connected **5 AWS services** in a single production-grade project
+
+---
+## 📌 What I Would Add Next
+
+- [ ] CloudFront CDN for faster content delivery
+- [ ] Route 53 for custom domain
+- [ ] HTTPS with SSL Certificate (ACM)
+- [ ] Auto Scaling Group for high availability
+- [ ] CloudWatch monitoring and alerts
+- [ ] Load Balancer for traffic distribution
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+<div align="center">
+
+**Built with ❤️ by Arlagadda Hepseeba**
+
+⭐ Star this repository if you found it helpful!
+
+</div>
+
 
 
 
